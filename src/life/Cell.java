@@ -12,6 +12,10 @@ public class Cell {
 		return colour;
 	}
 	
+	boolean isAlive() {
+		return colour != Colour.GREY;
+	}
+	
 	void setColour(Colour colour) {
 		this.colour = colour;
 	}

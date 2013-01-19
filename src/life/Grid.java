@@ -12,7 +12,7 @@ public class Grid {
 	}
 	
 	Cell getCell(int l, int c) {
-		if(l>0 && l<SIZE && c>0 && c<SIZE)
+		if(l>=0 && l<SIZE && c>=0 && c<SIZE)
 			return cells[l][c];
 		return null;
 	}

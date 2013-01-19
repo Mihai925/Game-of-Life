@@ -7,11 +7,11 @@ public class GridAdapter {
 
 	Grid grid;
 
-	public GridAdapter() {
-		this.grid = new Grid();
+	public GridAdapter(Grid grid) {
+		this.grid = grid;
 	}
 
-	private Cell getCell(int l, int c) {
+	Cell getCell(int l, int c) {
 		return grid.getCell(getLC(l), getLC(c));
 	}
 
@@ -19,7 +19,7 @@ public class GridAdapter {
 		return getCell(l,c).getColour().ordinal();
 	}
 	
-	int getLC(int x) {
+	private int getLC(int x) {
 		return (x+Grid.SIZE) % Grid.SIZE; 
 	}
 	
@@ -36,6 +36,7 @@ public class GridAdapter {
 		ret[getCellColourIndice(l+1,c+1)]++;
 		return ret;
 	}
+	
 	
 	void killCell(int l, int c) {
 		grid.killCell(getLC(l), getLC(c));
