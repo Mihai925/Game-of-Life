@@ -13,7 +13,9 @@ public class Life extends Applet {
 	// called by the html page to draw the applet
 	public void paint(Graphics g) {
 		// draw the applet
+		
 		g.drawString("ToDo: write a Life applet and a nice webpage", 25, 50);
+	
 	}
 
 	/*

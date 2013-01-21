@@ -1,7 +1,7 @@
 <html>
 <title>Java Life Lab Template</title>
 <hr>
-<applet code="Life.class" alt="not working" width="400" height="120">
+<applet code="Life.class" width="400" height="120">
 
 </applet>
 <hr>
