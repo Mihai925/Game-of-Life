@@ -14,6 +14,10 @@ public class GridAdapter {
 	Cell getCell(int l, int c) {
 		return grid.getCell(getLC(l), getLC(c));
 	}
+	
+	public void setGui(GUI gui) {
+		grid.setGui(gui);
+	}
 
 	private int getCellColourIndice(int l, int c) {
 		return getCell(l,c).getColour().ordinal();
@@ -43,7 +47,7 @@ public class GridAdapter {
 	}
 	
 	void setCellState(int l, int c, Colour colour) {
-		grid.getCell(getLC(l),getLC(c)).setColour(colour);
+		grid.setCellState(getLC(l), getLC(c), colour);
 	}
 	
 }

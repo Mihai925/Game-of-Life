@@ -13,7 +13,7 @@ public class Cell {
 	}
 	
 	boolean isAlive() {
-		return colour != Colour.GREY;
+		return colour != Colour.GRAY;
 	}
 	
 	void setColour(Colour colour) {

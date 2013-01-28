@@ -1,5 +1,5 @@
 package life;
 
 public enum Colour {
-	RED, GREEN, GREY;
+	RED, GREEN, GRAY;
 }
