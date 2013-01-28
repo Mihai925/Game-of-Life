@@ -48,7 +48,7 @@
 					</p>
 		</div> 
 				<h3>life patterns</h3>
-				<div style="color:#000;">
+				<div>
 				Some common patterns of cell have been detected to yield a certain behaviour in the <b>Game of Life</b>:
 				<ol>
 				<li>Still lifes - The ones that do not move at all:

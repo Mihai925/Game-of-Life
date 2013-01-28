@@ -36,7 +36,10 @@ public class Example1  {
 The output is stored in a file named 'alarm-multiple.output' and the result log(PASS/FAIL, FAIL in our case) in a file called alarm-multiple.result.
 
 struct foo* lookUp(struct list fList, int a)
-	{
-	for(Listitem *node = fList->head;node!=NULL && node->bar!=a;node=node->e);
-	return node;
-	}
+{
+Listitem *node = fList->head;
+while(node!=NULL && node->bar!=a)
+	node = node->e;
+
+return node;
+}
