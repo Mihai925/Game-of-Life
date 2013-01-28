@@ -1,0 +1,9 @@
+body {
+	margin:0;
+	background:#CCC;
+}
+
+#wrap {
+	width:700px;
+	margin:0 auto;
+}

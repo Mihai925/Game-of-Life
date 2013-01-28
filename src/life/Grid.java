@@ -34,7 +34,6 @@ public class Grid {
 	
 	void setCellState(int l, int c, Colour colour)  {
 		getCell(l,c).setColour(colour);
-		//System.out.println(gui);
 		gui.updateCellColour(l, c, colorMap.get(colour));
 	}
 	

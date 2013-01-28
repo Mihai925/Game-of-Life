@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSlider;
 import javax.swing.SwingConstants;
@@ -23,17 +24,18 @@ public class GUI {
 	private JButton step = new JButton("Step");
 	private JButton reset = new JButton("Clear");
 	private JButton run = new JButton("Run");
-	private JSlider slider = new JSlider(SwingConstants.VERTICAL,1,10,1);
+	private JSlider slider = new JSlider(SwingConstants.VERTICAL, 1, 10, 1);
+	private JLabel counter = new JLabel("turns: 0", SwingConstants.CENTER);
+	private int count = 0;
 	final JPanel panel = new JPanel();
-	private int speed;
 	private Life life;
 	final MouseAdapter ma = new MyMouseAdapter();
 	Timer t;
+
 	public GUI(Life life) {
 		this.life = life;
 	}
 
-	
 	void updateGUI() {
 		for (int i = 0; i < Grid.SIZE; i++)
 			for (int j = 0; j < Grid.SIZE; j++) {
@@ -42,8 +44,14 @@ public class GUI {
 			}
 	}
 
+	public void updateTurn() {
+		++count;
+		counter.setText("turns: " + count);
+		//counter.setName("turns: " + count);
+	}
 	public void start() {
 		JPanel grid = new JPanel();
+		t = new Timer(2000 / slider.getValue(), new TimerListener());
 		slider.setMajorTickSpacing(1);
 		slider.setPaintTicks(true);
 		slider.setPaintLabels(true);
@@ -51,11 +59,10 @@ public class GUI {
 
 			@Override
 			public void stateChanged(ChangeEvent arg0) {
-				t.setDelay(2000/slider.getValue());
-				//speed = slider.getValue();
-				
+				t.setDelay(2000 / slider.getValue());
+
 			}
-			
+
 		});
 		grid.setLayout(new GridLayout(Grid.SIZE, Grid.SIZE));
 		for (int i = 0; i < Grid.SIZE; i++)
@@ -68,7 +75,7 @@ public class GUI {
 				grid.add(cells[i][j]);
 				cells[i][j].addMouseListener(ma);
 			}
-		
+
 		JPanel buttons = new JPanel(new FlowLayout());
 		step.addActionListener(new ActionListener() {
 
@@ -76,51 +83,41 @@ public class GUI {
 			public void actionPerformed(ActionEvent event) {
 				life.step();
 			}
-			
+
 		});
-		
+
 		reset.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
 				life.clear();
-				
+
 			}
-			
+
 		});
-		
+
 		run.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent event) {
-				if(run.getText()=="Run") {
+				if (run.getText() == "Run") {
 					run.setText("Pause");
-					t = new Timer(2000/slider.getValue(), new TimerListener());
+					t = new Timer(2000 / slider.getValue(), new TimerListener());
 					t.start();
 				} else {
 					run.setText("Run");
 					t.stop();
 				}
-				
-				
-				
-				//try {
-					//while(true) {
-					//Thread.sleep(2);
-					
-				}
-					//}
-				//} catch (InterruptedException e) {
-				//	e.printStackTrace();
-				//}
-				
-			
-			
+
+			}
+
 		});
 		buttons.add(reset);
 		buttons.add(step);
 		buttons.add(run);
+		
 		panel.setLayout(new BorderLayout());
+		panel.add(counter,BorderLayout.NORTH);
 		panel.add(grid, BorderLayout.CENTER);
 		panel.add(buttons, BorderLayout.SOUTH);
 		panel.add(slider, BorderLayout.EAST);
@@ -139,11 +136,11 @@ public class GUI {
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			life.step();
-			
+
 		}
-		
+
 	}
-	
+
 	public class MyMouseAdapter extends MouseAdapter {
 		@Override
 		public void mouseClicked(MouseEvent event) {
@@ -156,9 +153,8 @@ public class GUI {
 				life.kill(x, y);
 			else if (SwingUtilities.isRightMouseButton(event))
 				life.resurrect(x, y, Colour.GREEN);
-			
+
 		}
 	}
-	
-	
+
 }

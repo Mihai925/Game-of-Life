@@ -62,6 +62,7 @@ public class Life extends JApplet {
 	// the turn counter
 	public void step() {
 		int[] states;
+		gui.updateTurn();
 		GridAdapter newGrid = GridFactory.getGrid(gui);
 		for (int i = 0; i < Grid.SIZE; i++)
 			for (int j = 0; j < Grid.SIZE; j++) {

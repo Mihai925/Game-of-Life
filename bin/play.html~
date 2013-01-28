@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Game of Life</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index.html" class="logo">
+			<h1>Game of Life</h1>
+			</a> 
+		</div>
+		<ul>
+			<li class="selected">
+				<a href="index.html">home</a>
+			</li>
+			<li>
+				<a href="play.html">play</a>
+			</li>
+			<li>
+				<a href="design_patterns.html">design patterns</a>
+			</li>
+			<li>
+				<a href="references.html">references</a>
+			</li>
+		</ul>
+	</div>
+	<div id="body">
+		<div class="article" >
+			<h2>Know the rules first!</h2>
+			
+			<p>Being a zero-player game, you just need to provide an initial configuration to the board. From that point onwards, the A.I. will take control and apply certain rules.</p><br />
+			<p>The game consists of a 30x30 circular grid. You can create a red cell by left-clicking, a green one by right-clicking or you can kill a cell by clicking the middle mouse button. After you have designed an initial configuration, you can either click Run or Step. At this point, the cells will begin to reproduce or die depending on the following rules:</p>
+			<ol>
+				<li>Any live cell with less than two live neighbours dies, by isolation</li>
+				<li>Any live cell with two or three live neighbours lives on to the next generation</li>
+				<li>Any live cell with three or more live neighbours dies by over-crowding</li>
+				<li>Any dead cell with exactly three live neighbours becomes a live cell, by reproduction. The color of the new live cell will be that of the majority of its neighbours. </li>
+			</ol>
+			
+			
+			
+		</div>
+		<div class="section">
+<div align="center">		
+	<applet code="life.Life.class" alt="not working" width="600px" height="600px" ></applet>
+		</div>
+<!--			<div class="featured">
+				<b>This is just a place holder</b>
+				<img src="images/grains.jpg" alt="">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac ligula et ligula ornare. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. s. Ut hendrerit erat leo ultrices Nulla eu ipsum dui. Donec malesuada vehicula nibh et iaculis. Sed egestas, risus ac varius vulputate, libero dui pretium odio, quis ultricies ligula enim non leo.  Proin quam massa, luctus non tempus nec, aliquam ut sapien.
+				</p>
+			</div>
+			<div class="aside">
+				<div>
+					<h3>this is just a place holder</h3>
+					<ul>
+						<li>
+							Cras dapibus ipsum sit amet mauris posuere
+						</li>
+						<li>
+							Suspendisse convallis diam quis dolor
+						</li>
+						<li>
+							Etiam vitae massa eros, quis adipiscing ipsum
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h3>this is just a place holder</h3>
+					<a href="#" class="figure"><img src="images/author.jpg" alt=""></a>
+					<p>
+						This is just a place holder, so you can see what the site look like.This is just a place holder, so you can see what the site look like.
+					</p>
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+	
+	</div>
+</body>
+</html>

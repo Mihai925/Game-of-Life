@@ -1,0 +1,14 @@
+<html>
+<body>
+<head>
+<title>Java Life Lab Template</title>
+<link rel="stylesheet" type="text/css" src="style.css" />
+</head>
+<div id="wrap">
+
+<!--<applet code="life.Life.class" alt="not working" width="600px" height="600px" ></applet>
+-->
+</div>
+</body>
+
+</html>

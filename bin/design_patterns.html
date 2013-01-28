@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Game of Life</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+	<div id="header">
+		<div>
+			<a href="index.html" class="logo">
+			<h1>Game of Life</h1>
+			</a> 
+		</div>
+		<ul>
+			<li class="selected">
+				<a href="index.html">home</a>
+			</li>
+			<li>
+				<a href="play.html">play</a>
+			</li>
+			<li>
+				<a href="design_patterns.html">design patterns</a>
+			</li>
+			<li>
+				<a href="references.html">references</a>
+			</li>
+		</ul>
+	</div>
+	<div id="body">
+		
+		<div class="section">
+			<h2>Design Patterns</h2>
+			<br />
+			Because I have given quite a significant attention to design patterns, I have chosen to talk more about them instead of implementing an extension. Throughout the code, I have used three design patterns: <a href="#sect1">Adapter Pattern</a>, <a href="#sect2">MVC Pattern</a>, <a href="#sect3">Factory Pattern</a>.
+			<br />
+			<br />
+			<p>&nbsp;</p>
+
+			<h3 id="sect1">Adapter Pattern</h3>
+			<hr />
+			<p>
+			The adapter pattern is generally used to translate a certain interaface into another compatible one.<br />
+			In this specific case, I have found that the endgeless grid could be a way to translate certain instructions to the normal grid. The GridAdapter class takes a normal grid as a parameter:<br /> <code>GridAdapter g = new GridAdapter(new Grid());</code></p>
+			<p>The main function used throught the GridAdapter class is the one that translates the coordinates from overflowing points into ones within the valid range of the grid:<br />
+			<code>private int getLC(int x) {
+		return (x+Grid.SIZE) % Grid.SIZE; 
+	}</code><p>&nbsp;</p>
+			<h3 id="sect2">MVC Pattern</h3>
+			<hr />
+			<p>
+			The MVC Pattern is probably the most predominant design pattern from this script. The way I designed it to function is the following:
+			<ol>
+			<li>The cell action listener (<b>Controller</b>) notices the user's input and transmits the new state of the cell to the current Life object.</li>
+			<li>The Life object takes the information and requests modifications in the grid (<b>Model</b>)</li>
+			<li>The GridAdapter passes the coordinates through its filters and furthers them to the Grid</li>
+			<li>The Grid (<b>Model</b>) makes the modifications and requests changes to the GUI</li>
+			<li>The GUI (<b>View</b>) changes and the user can see the modifications</li> 
+			</ol> 
+			</p>
+			<h3 id="sect3">Factory Pattern</h3>
+			<hr />
+			<p>
+			I have implemented an easily modified version of the Factory Pattern to give a certain degree of readability and agility to the code. Because the GUI is created after the first grid, I enabled the grid to be created without having any specific gui when the program starts. After each step, however, a new grid needs to be created. This time, however, it was crucial that the grid would be initialized with the gui as a parameter so that the MVC pattern will function well.<br />
+			In order to enable all these, I have created a separate factory class which contains two static methods (each returning a certain type of grid).
+			</p>
+			<!--<div class="featured">
+				<b>This is just a place holder</b>
+				<img src="images/grains.jpg" alt="">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ac ligula et ligula ornare. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. s. Ut hendrerit erat leo ultrices Nulla eu ipsum dui. Donec malesuada vehicula nibh et iaculis. Sed egestas, risus ac varius vulputate, libero dui pretium odio, quis ultricies ligula enim non leo.  Proin quam massa, luctus non tempus nec, aliquam ut sapien.
+				</p>
+			</div>
+			<div class="aside">
+				<div>
+					<h3>this is just a place holder</h3>
+					<ul>
+						<li>
+							Cras dapibus ipsum sit amet mauris posuere
+						</li>
+						<li>
+							Suspendisse convallis diam quis dolor
+						</li>
+						<li>
+							Etiam vitae massa eros, quis adipiscing ipsum
+						</li>
+					</ul>
+				</div>
+				<div>
+					<h3>this is just a place holder</h3>
+					<a href="#" class="figure"><img src="images/author.jpg" alt=""></a>
+					<p>
+						This is just a place holder, so you can see what the site look like.This is just a place holder, so you can see what the site look like.
+					</p>
+				</div>
+			</div> -->
+		</div>
+	</div>
+	<div id="footer">
+		
+	</div>
+</body>
+</html>
